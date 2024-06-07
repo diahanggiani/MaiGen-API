@@ -26,7 +26,7 @@ app.use('*', (req, res, next) => {
     });
 });
 
-const PORT = process.env.APP_PORT;
+const PORT = process.env.APP_PORT || 8080;
 
 app.listen(PORT, () => {
     console.log('Server listening on port', PORT);

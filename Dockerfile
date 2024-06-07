@@ -1,8 +1,8 @@
 # Gunakan image Node.js sebagai basis
-FROM node:16
+FROM node:14
 
 # Set working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Install dependencies
 COPY package*.json ./
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 8080
 
 # Start application
-CMD [ "npm", "run", "start:dev" ]
+CMD [ "npm", "start" ]

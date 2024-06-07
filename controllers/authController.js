@@ -5,12 +5,12 @@ const users = require("../database/models/users");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+// membuat token JWT berdasarkan payload (informasi) yang diberikan
 const generateToken = (payload) => {
     return jwt.sign(payload, process.env.JWT_SECRET_KEY, {
         expiresIn: process.env.JWT_EXPIRES_IN
     });
 };
-
 
 // signup
 const signup = async (req, res, next) => {
@@ -52,7 +52,7 @@ const signup = async (req, res, next) => {
 
     // generate token untuk pengguna baru
     result.token = generateToken({
-        id: result.id
+        id: result.user_id
     });
 
     // kirim respon sukses dengan data pengguna baru
@@ -88,19 +88,28 @@ const login = async (req, res, next) => {
     if(!isPasswordMatch){
         return res.status(401).json({
             status: 'Fail',
-            message: 'Incorrect email or password'
+            message: 'Incorrect password'
         });
     }
 
     // jika email dan password cocok, kirim token sebagai respons
-    const token = generateToken({ id: result.id });
+    const token = generateToken({ id: result.user_id });
     return res.json({
         status: 'Success',
         token
     });
 };
 
+// logout
+const logout = (req, res, next) => {
+    return res.status(200).json({
+        status: 'Success',
+        message: 'Logged out successfully'
+    });
+};
+
 module.exports = {
     signup,
-    login
+    login,
+    logout
 };

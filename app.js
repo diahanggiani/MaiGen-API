@@ -17,8 +17,7 @@ app.get('/', (req, res) => {
 });
 
 // daftar route
-// app.use('/api/v1/auth', userRouter);
-app.use('/auth', userRouter);
+app.use('/user', userRouter);
 
 app.use('*', (req, res, next) => {
     res.status(404).json({

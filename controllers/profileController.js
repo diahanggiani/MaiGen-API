@@ -28,7 +28,7 @@ const authenticate = (req, res, next) => {
     }
 };
 
-// profile
+// melihat data pengguna (profile)
 const getProfile = async (req, res, next) => {
     try {
         console.log('User ID from JWT:', req.user.id); // log ID pengguna dari JWT

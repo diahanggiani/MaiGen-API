@@ -4,7 +4,7 @@ require('dotenv').config({ path: `${process.cwd()}/.env`});
 
 const express = require('express');
 const app = express();
-const userRouter = require('./routes/userRoute');
+const userRouter = require('../routes/userRoute');
 
 // middleware express.json() untuk mem-parsing body permintaan dalam format JSON
 app.use(express.json());

@@ -2,9 +2,9 @@
 FROM node:14
 
 # Set working directory
-WORKDIR /app.js
+WORKDIR /app
 
-# Install dependencies
+# Salin package.json (jika ada) dan install dependencies
 COPY package*.json ./
 RUN npm install
 

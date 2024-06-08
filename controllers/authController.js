@@ -7,9 +7,7 @@ const bcrypt = require('bcrypt');
 
 // membuat token JWT berdasarkan payload (informasi) yang diberikan
 const generateToken = (payload) => {
-    return jwt.sign(payload, process.env.JWT_SECRET_KEY, {
-        expiresIn: process.env.JWT_EXPIRES_IN
-    });
+    return jwt.sign(payload, process.env.JWT_SECRET_KEY);
 };
 
 // signup

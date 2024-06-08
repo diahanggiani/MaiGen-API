@@ -1,4 +1,4 @@
-// menginisialisasi server Express, mendefinisikan rute-rute aplikasi, dan mulai mendengarkan permintaan masuk
+// menginisialisasi server express, mendefinisikan rute-rute aplikasi, dan mulai mendengarkan permintaan masuk
 
 require('dotenv').config({ path: `${process.cwd()}/.env`});
 
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     });
 });
 
-// daftar route
+// middleware userRoute dimana semua rute yang didefinisikan di userRoute akan ditambahkan ke aplikasi express
 app.use(userRouter);
 
 app.use('*', (req, res, next) => {
@@ -26,7 +26,8 @@ app.use('*', (req, res, next) => {
     });
 });
 
-const PORT = process.env.APP_PORT;
+// const PORT = process.env.APP_PORT;
+const PORT = 8080;
 
 app.listen(PORT, () => {
     console.log('Server listening on port', PORT);

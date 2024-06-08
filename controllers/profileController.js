@@ -31,7 +31,6 @@ const authenticate = (req, res, next) => {
 // melihat data pengguna (profile)
 const getProfile = async (req, res, next) => {
     try {
-        console.log('User ID from JWT:', req.user.id); // log ID pengguna dari JWT
         // mencari user berdasarkan id
         const user = await users.findByPk(req.user.id, {
             attributes: ['username', 'email', 'password']

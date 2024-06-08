@@ -2,7 +2,7 @@
 FROM node:14
 
 # Set working directory
-WORKDIR /app
+WORKDIR /app.js
 
 # Install dependencies
 COPY package*.json ./
